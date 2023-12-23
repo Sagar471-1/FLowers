@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowers?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background-color: #ed9ebf;
+        }
+
+        #noButton {
+            position: absolute;
+            margin-left: 150px;
+            margin-top: 300px;
+            transition: 0.4s;
+        }
+
+        #yesButton {
+            position: absolute;
+            margin-right: 200px;
+            margin-top: 300px;
+        }
+
+        .header_text {
+            font-family: 'Nunito';
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 80px;
+            margin-left:  20px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .btn {
+            background-color: #FFB6C1;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: none;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        
+        .img{
+            height: 400px;
+            width: 400px;
+            margin: auto;
+
+            animation: heartbeat 1s infinte;
+            transition: transform 0.5s;
+        }
+        img:hover{
+            transform: rotate(deg) scale(1);
+        }
+
+        .heart-container {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            animation: heartbeat 1s infinite;
+        }
+
+        .heart-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        @keyframes heartbeat {
+            0%, 20%, 40%, 60%, 80%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1 class="header_text">Flowers Chahiye?</h1>
+        </div>
+        <div class="heart-container">
+            <img src="https://i.pinimg.com/236x/53/bc/ae/53bcae43a7a1372fdc70e4b17e3ac016.jpg" alt="Cute animated illustration">
+        </div>
+        <div class="buttons">
+            <a class="btn" href="yes1.html" id="yesButton">Yes</a>
+            <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+    </div>
+    <script>
+        function moveButton() {
+            var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+            var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+            document.getElementById('noButton').style.left = `${x}px`;
+            document.getElementById('noButton').style.top = `${y}px`;
+        }
+
+        
+        function navigateToNextPage() {
+            window.location.href = "yes1.html";
+        }
+
+        
+        document.getElementById('yesButton').addEventListener('click', function(event) {
+            event.preventDefault(); 
+            navigateToNextPage();
+        });
+    </script>
+</body>
+</html>
